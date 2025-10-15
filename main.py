@@ -1,6 +1,5 @@
 from exceptions import *
 from json_exporter import JsonExporter
-from order import Order
 from payment import *
 from pricing_strategy import *
 
@@ -12,7 +11,7 @@ try:
 except InvalidItemError as e:
     print(e)
 
-order.set_pricing_strategy(PromoCodePricing("SALE10"))
+order.set_pricing_strategy(PizzaDiscount("SALE20"))
 
 for item in order.get_items():
     print(item)

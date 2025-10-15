@@ -2,7 +2,7 @@ class InvalidItemError(Exception):
     def __str__(self):
         return "Ошибка: некорректные данные позиции"
 
-class InvalidPromoCodeError(Exception):
+class InvalidCodeError(Exception):
     def __str__(self):
         return "Нет такого промокода"
 

@@ -24,12 +24,12 @@ class Order:
         self.pricing_strategy = strategy
 
     def get_total(self):
-        total = 0
-        for item in self.items:
-            total += item.price * item.quantity
         if self.pricing_strategy is None:
-            return total
-        return f"Итоговая стоимость заказа: {total * (1 - self.pricing_strategy.sale())} руб."
+            total = 0
+            for item in self.items:
+                total += item.price * item.quantity
+            return f"Итоговая стоимость заказа: {total} руб."
+        return f"Итоговая стоимость заказа: {self.pricing_strategy.get_total_after_sale(self)} руб."
 
     def get_items(self):
         return self.items
